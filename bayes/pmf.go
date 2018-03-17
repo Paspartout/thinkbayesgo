@@ -57,6 +57,13 @@ func (pmf PMF) IsNormalized() bool {
 	return delta <= maxDelta
 }
 
+// Mult multiplies the probability of the given event by
+// probability or liklehood p to update the distribution
+// with new data
+func (pmf PMF) Mult(event Event, p Probability) {
+	pmf[event] *= p
+}
+
 // String returns a better string representation for the map
 func (pmf PMF) String() string {
 	str := "PMF ["
